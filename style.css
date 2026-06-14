@@ -50,7 +50,9 @@ button { border: 0; background: none; color: inherit; cursor: pointer; }
   height: 38px;
   place-items: center;
   border-radius: 50%;
-  background: #0a0a0a;
+  /* background: #0a0a0a; */
+  background: #2563eb;
+  border-color: #2563eb;
   color: #ffffff;
   font-size: 0.8rem;
 }
