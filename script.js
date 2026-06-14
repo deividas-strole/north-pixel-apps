@@ -64,27 +64,75 @@ const pages = {
         <article class="card animated-card"><span>03</span><h3>Growth</h3><p>Content structure, local SEO, technical SEO, and landing pages built to convert visitors.</p></article>
       </div>
     </section>`,
-  about: `
-    <section class="animated-section page-hero grid-two">
-      <div class="copy-block stagger">
-        <p class="eyebrow">About us</p>
-        <h1>A small studio with focused roles and personal attention.</h1>
-        <p class="lead">North Pixel Apps is a lean software startup led by a developer, designer, and marketing partner. We keep projects clear, direct, and practical.</p>
-      </div>
-      <div class="image-card floating-image">${illustrations.about}</div>
-    </section>
+  // about: `
+  //   <section class="animated-section page-hero grid-two">
+  //     <div class="copy-block stagger">
+  //       <p class="eyebrow">About us</p>
+  //       <h1>A small studio with focused roles and personal attention.</h1>
+  //       <p class="lead">North Pixel Apps is a lean software startup led by a developer, designer, and marketing partner. We keep projects clear, direct, and practical.</p>
+  //     </div>
+  //     <div class="image-card floating-image">${illustrations.about}</div>
+  //   </section>
 
-    <section class="animated-section split-section">
-      <div class="section-heading stagger">
-        <p class="eyebrow">Team structure</p>
-        <h2>Built for speed and accountability.</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item animated-card"><strong>Development</strong><p>Deividas leads architecture, coding, deployment, performance, and technical maintenance.</p></div>
-        <div class="timeline-item animated-card"><strong>Business & Design</strong><p>Elena manages client communication, visual direction, layout, branding, and project organization.</p></div>
-        <div class="timeline-item animated-card"><strong>Marketing & SEO</strong><p>Our marketing partner handles search visibility, content planning, keyword strategy, and outreach.</p></div>
-      </div>
-    </section>`,
+  //   <section class="animated-section split-section">
+  //     <div class="section-heading stagger">
+  //       <p class="eyebrow">Team structure</p>
+  //       <h2>Built for speed and accountability.</h2>
+  //     </div>
+  //     <div class="timeline">
+  //       <div class="timeline-item animated-card"><strong>Development</strong><p>Deividas leads architecture, coding, deployment, performance, and technical maintenance.</p></div>
+  //       <div class="timeline-item animated-card"><strong>Business & Design</strong><p>Elena manages client communication, visual direction, layout, branding, and project organization.</p></div>
+  //       <div class="timeline-item animated-card"><strong>Marketing & SEO</strong><p>Our marketing partner handles search visibility, content planning, keyword strategy, and outreach.</p></div>
+  //     </div>
+  //   </section>`,
+  about: `
+  <section class="animated-section page-hero grid-two">
+    <div class="copy-block stagger">
+      <p class="eyebrow">About us</p>
+      <h1>A small studio with focused roles and personal attention.</h1>
+      <p class="lead">North Pixel Apps is a lean software startup led by a developer, designer, and marketing partner. We keep projects clear, direct, and practical.</p>
+    </div>
+    <div class="image-card floating-image">${illustrations.about}</div>
+  </section>
+
+  <section class="animated-section team-section" id="our-team">
+    <div class="section-heading stagger">
+      <p class="eyebrow">Our Team</p>
+      <h2>Three focused roles. One clear mission.</h2>
+    </div>
+
+    <div class="team-photo-grid">
+      <article class="team-member">
+        <img src="images/deividas.jpg" alt="Deividas Strole" class="rotating-team-photo" />
+        <h3>Deividas Strole</h3>
+        <p>Developer / Software Engineer</p>
+      </article>
+
+      <article class="team-member">
+        <img src="images/elena.jpg" alt="Elena Strole" class="rotating-team-photo" />
+        <h3>Elena Strole</h3>
+        <p>Business / Designer</p>
+      </article>
+
+      <article class="team-member">
+        <img src="images/marketing.jpg" alt="Marketing and SEO Specialist" class="rotating-team-photo" />
+        <h3>Marketing Specialist</h3>
+        <p>SEO / Marketing</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="animated-section split-section">
+    <div class="section-heading stagger">
+      <p class="eyebrow">Team structure</p>
+      <h2>Built for speed and accountability.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item animated-card"><strong>Development</strong><p>Deividas leads architecture, coding, deployment, performance, and technical maintenance.</p></div>
+      <div class="timeline-item animated-card"><strong>Business & Design</strong><p>Elena manages client communication, visual direction, layout, branding, and project organization.</p></div>
+      <div class="timeline-item animated-card"><strong>Marketing & SEO</strong><p>Our marketing partner handles search visibility, content planning, keyword strategy, and outreach.</p></div>
+    </div>
+  </section>`,
   contact: `
     <section class="animated-section page-hero grid-two">
       <div class="copy-block stagger">
