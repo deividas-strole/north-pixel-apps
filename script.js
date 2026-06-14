@@ -62,6 +62,7 @@ const pages = {
         <p class="eyebrow">What we do</p>
         <h2>Simple services. Professional results.</h2>
       </div>
+
       <div class="cards">
         <article class="card animated-card">
           <span>01</span>
@@ -90,10 +91,11 @@ const pages = {
         <h1>A small studio with focused roles and personal attention.</h1>
         <p class="lead">North Pixel Apps is a lean software startup led by a developer, designer, and marketing partner. We keep projects clear, direct, and practical.</p>
       </div>
+
       <div class="image-card floating-image">${illustrations.about}</div>
     </section>
 
-    <section class="animated-section team-section team-visible-target" id="our-team">
+    <section class="animated-section team-section" id="our-team">
       <div class="section-heading stagger">
         <p class="eyebrow">Our Team</p>
         <h2>Three focused roles. One clear mission.</h2>
@@ -151,6 +153,7 @@ const pages = {
         <h1>Tell us what you want to build.</h1>
         <p class="lead">Send a short message about your business, website, or app idea. We will respond with a clear next step.</p>
       </div>
+
       <div class="image-card floating-image">${illustrations.contact}</div>
     </section>
 
@@ -173,7 +176,7 @@ const pages = {
 
         <button class="button primary" type="submit">Send Message</button>
 
-        <p class="form-note">This is a front-end demo form. Connect it later to Formspree, Netlify Forms, or your own backend.</p>
+        <p class="form-note">This is a front-end demo form. Connect this form later to Formspree, Netlify Forms, or your own backend.</p>
       </form>
     </section>`
 };
@@ -214,7 +217,7 @@ function renderPage() {
   }
 
   observeAnimatedSections();
-  observeTeamSection();
+  setupScrollRotatingTeamPhotos();
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -242,31 +245,28 @@ function observeAnimatedSections() {
   sections.forEach((section) => observer.observe(section));
 }
 
-function observeTeamSection() {
-  const teamSection = document.querySelector('.team-visible-target');
+function setupScrollRotatingTeamPhotos() {
+  const photos = document.querySelectorAll('.rotating-team-photo');
 
-  if (!teamSection) {
+  if (!photos.length) {
     return;
   }
 
-  if (!('IntersectionObserver' in window)) {
-    teamSection.classList.add('team-is-visible');
-    return;
+  function rotatePhotosOnScroll() {
+    const scrollAmount = window.scrollY;
+
+    photos.forEach((photo, index) => {
+      const speed = 0.35 + index * 0.08;
+      const rotation = 180 + scrollAmount * speed;
+
+      photo.style.transform = `rotate(${rotation}deg) scale(1)`;
+    });
   }
 
-  const teamObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          teamSection.classList.add('team-is-visible');
-          teamObserver.unobserve(teamSection);
-        }
-      });
-    },
-    { threshold: 0.45 }
-  );
+  window.removeEventListener('scroll', rotatePhotosOnScroll);
+  window.addEventListener('scroll', rotatePhotosOnScroll);
 
-  teamObserver.observe(teamSection);
+  rotatePhotosOnScroll();
 }
 
 window.addEventListener('hashchange', renderPage);
