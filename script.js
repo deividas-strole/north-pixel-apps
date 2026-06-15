@@ -153,13 +153,13 @@ const pages = {
         <h2>Built for speed and accountability.</h2>
       </div>
 
-      <div class="timeline-item animated-card">
-          <strong>Business & Design</strong>
-          <p>Helena Saf manages client communication, visual direction, layout, branding, and project organization. She holds Bachelor’s and Master’s degrees and has multi-year experience with corporate U.S. and international companies.</p>
-      </div>
-      
       <div class="timeline">
-        <div class="timeline-item animated-card">
+       <div class="timeline-item animated-card">
+           <strong>Business & Design</strong>
+           <p>Helena Saf manages client communication, visual direction, layout, branding, and project organization. She holds Bachelor’s and Master’s degrees and has multi-year experience with corporate U.S. and international companies.</p>
+       </div>
+      
+       <div class="timeline-item animated-card">
           <strong>Development</strong>
           <p>Deividas Strole leads software architecture, coding, deployment, performance, and technical maintenance. He holds a Bachelor’s degree in Computer Science and a Master’s degree in Software Engineering, with experience in Java, JavaScript technologies, and modern web application development.</p>        </div>
        
