@@ -66,33 +66,7 @@ The About section explains the company’s approach and includes an “Our Team�
 
 The Contact section includes a simple front-end form layout. The form is currently a demo and can later be connected to a backend service, Formspree, Netlify Forms, or another email handling solution.
 
-## Deployment
 
-This project is designed to work directly with **GitHub Pages**.
-
-To deploy:
-
-1. Upload the files to a GitHub repository.
-2. Go to repository **Settings**.
-3. Open **Pages**.
-4. Select **Deploy from a branch**.
-5. Choose the `main` branch and `/ root`.
-6. Save the settings.
-
-The website will be available at:
-
-```text
-https://your-github-username.github.io/repository-name/
-```
-
-## Customization
-
-You can update the company name, text, images, colors, and sections directly in the files:
-
-* Edit page structure and metadata in `index.html`
-* Edit page content and interactive behavior in `script.js`
-* Edit design, layout, animations, and responsive styling in `style.css`
-* Replace team photos inside the `images/` folder
 
 ## Connect
 
