@@ -199,8 +199,6 @@ const pages = {
         </label>
 
         <button class="button primary" type="submit">Send Message</button>
-
-        <p class="form-note">This is a front-end demo form. Connect this form later to Formspree, Netlify Forms, or your own backend.</p>
       </form>
     </section>`
 };
