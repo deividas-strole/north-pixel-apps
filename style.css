@@ -586,8 +586,8 @@ h3 {
 
 .fly-walk-section {
   position: relative;
-  height: 90px;
-  margin: 18px 0 28px;
+  height: 110px;
+  margin: 22px 0 34px;
   overflow: hidden;
 }
 
@@ -597,133 +597,104 @@ h3 {
   height: 100%;
   border-top: 1px solid rgba(10, 10, 10, 0.08);
   border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 0, 110, 0.08), transparent 28%),
+    radial-gradient(circle at 72% 45%, rgba(37, 99, 235, 0.08), transparent 30%),
+    radial-gradient(circle at 88% 55%, rgba(255, 190, 11, 0.1), transparent 26%);
 }
 
-.walking-fly {
+.gradient-fly {
   position: absolute;
   left: 0;
   top: 50%;
-  width: 54px;
-  height: 34px;
-  transform: translateY(-50%);
-  transition: transform 0.08s linear;
+  width: 92px;
+  height: 62px;
+  transform: translate3d(0, -50%, 0) scaleX(1);
+  transform-origin: center;
+  will-change: transform;
+  filter: drop-shadow(0 12px 18px rgba(37, 99, 235, 0.18));
 }
 
-.walking-fly.facing-left {
-  transform: translateY(-50%) scaleX(-1);
+.gradient-fly.facing-left {
+  transform: translate3d(var(--fly-x, 0px), -50%, 0) scaleX(-1);
 }
 
-.fly-body {
-  position: absolute;
-  left: 18px;
-  top: 12px;
-  width: 24px;
-  height: 14px;
-  border-radius: 50%;
-  background: #0a0a0a;
+.gradient-fly.facing-right {
+  transform: translate3d(var(--fly-x, 0px), -50%, 0) scaleX(1);
 }
 
-.fly-head {
-  position: absolute;
-  left: 39px;
-  top: 14px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #0a0a0a;
+.fly-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .fly-wing {
-  position: absolute;
-  width: 22px;
-  height: 13px;
-  border-radius: 50%;
-  background: rgba(37, 99, 235, 0.18);
-  border: 1px solid rgba(37, 99, 235, 0.25);
-  animation: wingFlutter 0.18s infinite alternate ease-in-out;
+  transform-origin: 64px 45px;
+  stroke: rgba(37, 99, 235, 0.25);
+  stroke-width: 1.5;
+  animation: flyWingFlutter 0.18s infinite alternate ease-in-out;
 }
 
-.fly-wing-left {
-  left: 14px;
-  top: 1px;
-  transform: rotate(-22deg);
+.wing-top {
+  transform: rotate(-18deg);
 }
 
-.fly-wing-right {
-  left: 24px;
-  top: 2px;
-  transform: rotate(24deg);
+.wing-bottom {
+  transform: rotate(18deg);
   animation-delay: 0.08s;
 }
 
 .fly-leg {
-  position: absolute;
-  width: 14px;
-  height: 2px;
-  background: #0a0a0a;
-  border-radius: 999px;
-  transform-origin: right center;
-  animation: legWalk 0.24s infinite alternate ease-in-out;
+  fill: none;
+  stroke: #2563eb;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.8;
+  animation: flyLegWalk 0.28s infinite alternate ease-in-out;
 }
 
-.leg-1 {
-  left: 11px;
-  top: 23px;
-  transform: rotate(28deg);
-}
-
-.leg-2 {
-  left: 19px;
-  top: 25px;
-  transform: rotate(42deg);
+.leg-b,
+.leg-e {
   animation-delay: 0.08s;
 }
 
-.leg-3 {
-  left: 28px;
-  top: 25px;
-  transform: rotate(55deg);
+.leg-c,
+.leg-f {
   animation-delay: 0.16s;
 }
 
-.leg-4 {
-  left: 11px;
-  top: 12px;
-  transform: rotate(-28deg);
-}
-
-.leg-5 {
-  left: 19px;
-  top: 10px;
-  transform: rotate(-42deg);
-  animation-delay: 0.08s;
-}
-
-.leg-6 {
-  left: 28px;
-  top: 10px;
-  transform: rotate(-55deg);
-  animation-delay: 0.16s;
-}
-
-@keyframes wingFlutter {
+@keyframes flyWingFlutter {
   from {
     opacity: 0.45;
-    scale: 1;
+    transform: rotate(-12deg) scaleY(0.92);
   }
 
   to {
-    opacity: 0.85;
-    scale: 1.08;
+    opacity: 0.95;
+    transform: rotate(12deg) scaleY(1.08);
   }
 }
 
-@keyframes legWalk {
+@keyframes flyLegWalk {
   from {
-    rotate: -8deg;
+    stroke-dashoffset: 0;
+    transform: translateY(-1px);
   }
 
   to {
-    rotate: 8deg;
+    stroke-dashoffset: 4;
+    transform: translateY(2px);
+  }
+}
+
+@media (max-width: 700px) {
+  .fly-walk-section {
+    height: 90px;
+  }
+
+  .gradient-fly {
+    width: 74px;
+    height: 50px;
   }
 }
