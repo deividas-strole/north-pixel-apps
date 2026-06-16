@@ -1,11 +1,11 @@
-# North Pixel Apps Website by Deividas Strole
+# Lake Apps Website by Deividas Strole
 
-A modern static website for **North Pixel Apps**, created by **Deividas Strole**.
+A modern static website for **Lake Apps**, created by **Deividas Strole**.
 The website is built with simple front-end technologies and designed for fast deployment on **GitHub Pages**.
 
 ## Overview
 
-North Pixel Apps is a digital brand focused on modern websites, custom software, and digital growth solutions. This static website presents the company’s services, team structure, and contact information in a clean, professional, and responsive design.
+Lake Apps is a digital brand focused on modern websites, custom software, and digital growth solutions. This static website presents the company’s services, team structure, and contact information in a clean, professional, and responsive design.
 
 The project uses a minimalist black-and-white visual style with electric gradient accents inspired by the following color palette:
 
@@ -52,7 +52,7 @@ north-pixel-apps/
 
 ### Home
 
-The Home section introduces North Pixel Apps and highlights the company’s main services:
+The Home section introduces Lake Apps and highlights the company’s main services:
 
 * Websites
 * Web apps
