@@ -581,3 +581,149 @@ h3 {
   color: transparent;
   font-weight: 800;
 }
+
+/* Walking fly */
+
+.fly-walk-section {
+  position: relative;
+  height: 90px;
+  margin: 18px 0 28px;
+  overflow: hidden;
+}
+
+.fly-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid rgba(10, 10, 10, 0.08);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.walking-fly {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 54px;
+  height: 34px;
+  transform: translateY(-50%);
+  transition: transform 0.08s linear;
+}
+
+.walking-fly.facing-left {
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.fly-body {
+  position: absolute;
+  left: 18px;
+  top: 12px;
+  width: 24px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0a0a0a;
+}
+
+.fly-head {
+  position: absolute;
+  left: 39px;
+  top: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0a0a0a;
+}
+
+.fly-wing {
+  position: absolute;
+  width: 22px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  animation: wingFlutter 0.18s infinite alternate ease-in-out;
+}
+
+.fly-wing-left {
+  left: 14px;
+  top: 1px;
+  transform: rotate(-22deg);
+}
+
+.fly-wing-right {
+  left: 24px;
+  top: 2px;
+  transform: rotate(24deg);
+  animation-delay: 0.08s;
+}
+
+.fly-leg {
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  background: #0a0a0a;
+  border-radius: 999px;
+  transform-origin: right center;
+  animation: legWalk 0.24s infinite alternate ease-in-out;
+}
+
+.leg-1 {
+  left: 11px;
+  top: 23px;
+  transform: rotate(28deg);
+}
+
+.leg-2 {
+  left: 19px;
+  top: 25px;
+  transform: rotate(42deg);
+  animation-delay: 0.08s;
+}
+
+.leg-3 {
+  left: 28px;
+  top: 25px;
+  transform: rotate(55deg);
+  animation-delay: 0.16s;
+}
+
+.leg-4 {
+  left: 11px;
+  top: 12px;
+  transform: rotate(-28deg);
+}
+
+.leg-5 {
+  left: 19px;
+  top: 10px;
+  transform: rotate(-42deg);
+  animation-delay: 0.08s;
+}
+
+.leg-6 {
+  left: 28px;
+  top: 10px;
+  transform: rotate(-55deg);
+  animation-delay: 0.16s;
+}
+
+@keyframes wingFlutter {
+  from {
+    opacity: 0.45;
+    scale: 1;
+  }
+
+  to {
+    opacity: 0.85;
+    scale: 1.08;
+  }
+}
+
+@keyframes legWalk {
+  from {
+    rotate: -8deg;
+  }
+
+  to {
+    rotate: 8deg;
+  }
+}
