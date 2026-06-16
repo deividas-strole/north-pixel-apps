@@ -82,6 +82,24 @@ const pages = {
       <div class="image-card floating-image">${illustrations.home}</div>
     </section>
 
+<section class="fly-walk-section animated-section">
+  <div class="fly-track">
+    <div class="walking-fly" aria-hidden="true">
+      <span class="fly-wing fly-wing-left"></span>
+      <span class="fly-wing fly-wing-right"></span>
+      <span class="fly-body"></span>
+      <span class="fly-head"></span>
+      <span class="fly-leg leg-1"></span>
+      <span class="fly-leg leg-2"></span>
+      <span class="fly-leg leg-3"></span>
+      <span class="fly-leg leg-4"></span>
+      <span class="fly-leg leg-5"></span>
+      <span class="fly-leg leg-6"></span>
+    </div>
+  </div>
+</section>
+
+
     <section class="animated-section services-section">
       <div class="section-heading stagger">
         <p class="eyebrow">What we do</p>
