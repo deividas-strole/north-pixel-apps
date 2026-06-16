@@ -114,7 +114,7 @@ const pages = {
       <div class="copy-block stagger">
         <p class="eyebrow">About us</p>
         <h1>Built in California. Made for business.</h1>
-        <p class="lead">Polar Apps is a California-based U.S. digital studio creating modern websites, custom software, and digital growth solutions. We keep every project clear, direct, and practical.</p>
+        <p class="lead">Lake Apps is a California-based U.S. digital studio creating modern websites, custom software, and digital growth solutions. We keep every project clear, direct, and practical.</p>
       </div>
 
       <div class="image-card floating-image">${illustrations.about}</div>
