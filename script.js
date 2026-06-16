@@ -380,46 +380,47 @@ if (!window.location.hash) {
 
 function setupWalkingFly() {
   const flySection = document.querySelector('.fly-walk-section');
-  const fly = document.querySelector('.walking-fly');
+  const fly = document.querySelector('.gradient-fly');
 
   if (!flySection || !fly) {
     return;
   }
 
   let lastScrollY = window.scrollY;
+  let flyX = Number(fly.dataset.flyX || 0);
 
   function moveFlyOnScroll() {
-    const sectionRect = flySection.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
+    const currentScrollY = window.scrollY;
+    const scrollDifference = currentScrollY - lastScrollY;
 
-    const scrollingDown = window.scrollY > lastScrollY;
-
-    if (scrollingDown) {
-      fly.classList.remove('facing-left');
-    } else {
-      fly.classList.add('facing-left');
+    if (scrollDifference === 0) {
+      return;
     }
-
-    const progress = 1 - sectionRect.top / windowHeight;
-    const limitedProgress = Math.min(Math.max(progress, 0), 1);
 
     const trackWidth = flySection.offsetWidth;
     const flyWidth = fly.offsetWidth;
-    const maxMove = trackWidth - flyWidth;
+    const maxMove = Math.max(trackWidth - flyWidth, 0);
 
-    const x = limitedProgress * maxMove;
+    flyX += scrollDifference * 0.8;
+    flyX = Math.max(0, Math.min(flyX, maxMove));
 
-    if (scrollingDown) {
-      fly.style.left = `${x}px`;
+    fly.dataset.flyX = String(flyX);
+    fly.style.setProperty('--fly-x', `${flyX}px`);
+
+    if (scrollDifference > 0) {
+      fly.classList.remove('facing-left');
+      fly.classList.add('facing-right');
     } else {
-      fly.style.left = `${maxMove - x}px`;
+      fly.classList.remove('facing-right');
+      fly.classList.add('facing-left');
     }
 
-    lastScrollY = window.scrollY;
+    lastScrollY = currentScrollY;
   }
+
+  fly.classList.add('facing-right');
+  fly.style.setProperty('--fly-x', `${flyX}px`);
 
   window.removeEventListener('scroll', moveFlyOnScroll);
   window.addEventListener('scroll', moveFlyOnScroll);
-
-  moveFlyOnScroll();
 }
