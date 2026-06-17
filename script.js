@@ -409,7 +409,7 @@ function setupWalkingFly() {
     const sectionRect = flySection.getBoundingClientRect();
 
     const sectionJustEntered =
-      sectionRect.top < window.innerHeight * 2.15 &&
+      sectionRect.top < window.innerHeight * 1.15 &&
       sectionRect.bottom > 0;
 
     if (!sectionJustEntered) {
