@@ -1,6 +1,9 @@
 const app = document.querySelector('#app');
 const year = document.querySelector('#year');
 
+let teamPhotoScrollHandler = null;
+let walkingFlyScrollHandler = null;
+
 if (year) {
   year.textContent = new Date().getFullYear();
 }
@@ -26,7 +29,7 @@ const illustrations = {
     <rect x="112" y="302" width="346" height="24" rx="12" fill="#0a0a0a" opacity=".65"/>
     <path d="M458 178l44 44-44 44M386 266l-44-44 44-44" fill="none" stroke="#0a0a0a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`,
-  
+
   about: `
   <svg viewBox="0 0 640 520" role="img" aria-label="Abstract black and white connected nodes illustration" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -46,7 +49,7 @@ const illustrations = {
     <rect x="92" y="94" width="168" height="24" rx="12" fill="#0a0a0a" opacity=".75"/>
     <rect x="92" y="136" width="120" height="24" rx="12" fill="#0a0a0a" opacity=".45"/>
   </svg>`,
-  
+
   contact: `
   <svg viewBox="0 0 640 520" role="img" aria-label="Abstract black and white contact envelope illustration" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -82,47 +85,45 @@ const pages = {
       <div class="image-card floating-image">${illustrations.home}</div>
     </section>
 
+    <section class="fly-walk-section animated-section" aria-hidden="true">
+      <div class="fly-track">
+        <div class="gradient-fly">
+          <svg viewBox="0 0 140 90" class="fly-svg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lakeFlyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff006e" />
+                <stop offset="50%" stop-color="#2563eb" />
+                <stop offset="100%" stop-color="#ffbe0b" />
+              </linearGradient>
 
-<section class="fly-walk-section animated-section" aria-hidden="true">
-  <div class="fly-track">
-    <div class="gradient-fly">
-      <svg viewBox="0 0 140 90" class="fly-svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="lakeFlyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ff006e" />
-            <stop offset="50%" stop-color="#2563eb" />
-            <stop offset="100%" stop-color="#ffbe0b" />
-          </linearGradient>
+              <radialGradient id="wingGlow" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#2563eb" stop-opacity="0.18" />
+              </radialGradient>
+            </defs>
 
-          <radialGradient id="wingGlow" cx="50%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
-            <stop offset="100%" stop-color="#2563eb" stop-opacity="0.18" />
-          </radialGradient>
-        </defs>
+            <ellipse class="fly-wing wing-top" cx="57" cy="27" rx="28" ry="15" fill="url(#wingGlow)" />
+            <ellipse class="fly-wing wing-bottom" cx="57" cy="61" rx="28" ry="15" fill="url(#wingGlow)" />
 
-        <ellipse class="fly-wing wing-top" cx="57" cy="27" rx="28" ry="15" fill="url(#wingGlow)" />
-        <ellipse class="fly-wing wing-bottom" cx="57" cy="61" rx="28" ry="15" fill="url(#wingGlow)" />
+            <ellipse cx="76" cy="45" rx="30" ry="17" fill="url(#lakeFlyGradient)" />
+            <circle cx="108" cy="42" r="13" fill="url(#lakeFlyGradient)" />
 
-        <ellipse cx="76" cy="45" rx="30" ry="17" fill="url(#lakeFlyGradient)" />
-        <circle cx="108" cy="42" r="13" fill="url(#lakeFlyGradient)" />
+            <circle cx="113" cy="38" r="3.5" fill="#ffffff" opacity="0.95" />
+            <circle cx="114" cy="38" r="1.5" fill="#111111" opacity="0.75" />
 
-        <circle cx="113" cy="38" r="3.5" fill="#ffffff" opacity="0.95" />
-        <circle cx="114" cy="38" r="1.5" fill="#111111" opacity="0.75" />
+            <path class="fly-leg leg-a" d="M66 58 C55 68, 43 70, 34 78" />
+            <path class="fly-leg leg-b" d="M76 61 C68 73, 60 78, 52 84" />
+            <path class="fly-leg leg-c" d="M88 58 C86 70, 84 78, 78 86" />
 
-        <path class="fly-leg leg-a" d="M66 58 C55 68, 43 70, 34 78" />
-        <path class="fly-leg leg-b" d="M76 61 C68 73, 60 78, 52 84" />
-        <path class="fly-leg leg-c" d="M88 58 C86 70, 84 78, 78 86" />
+            <path class="fly-leg leg-d" d="M66 32 C55 22, 43 20, 34 12" />
+            <path class="fly-leg leg-e" d="M76 29 C68 17, 60 12, 52 6" />
+            <path class="fly-leg leg-f" d="M88 32 C86 20, 84 12, 78 4" />
 
-        <path class="fly-leg leg-d" d="M66 32 C55 22, 43 20, 34 12" />
-        <path class="fly-leg leg-e" d="M76 29 C68 17, 60 12, 52 6" />
-        <path class="fly-leg leg-f" d="M88 32 C86 20, 84 12, 78 4" />
-
-        <path d="M119 40 C127 36, 132 35, 136 36" stroke="#2563eb" stroke-width="3" stroke-linecap="round" fill="none" />
-      </svg>
-    </div>
-  </div>
-</section>
-
+            <path d="M119 40 C127 36, 132 35, 136 36" stroke="#2563eb" stroke-width="3" stroke-linecap="round" fill="none" />
+          </svg>
+        </div>
+      </div>
+    </section>
 
     <section class="animated-section services-section">
       <div class="section-heading stagger">
@@ -169,12 +170,12 @@ const pages = {
       </div>
 
       <div class="team-photo-grid">
-      <article class="team-member animated-card">
+        <article class="team-member animated-card">
           <img src="images/helen-saf.jpg" alt="Helen Saf" class="rotating-team-photo" />
           <h3>Helen Saf</h3>
           <p>Business / Designer</p>
         </article>
-        
+
         <article class="team-member animated-card">
           <img src="images/deividas-strole.jpg" alt="Deividas Strole" class="rotating-team-photo" />
           <h3>Deividas Strole</h3>
@@ -196,15 +197,16 @@ const pages = {
       </div>
 
       <div class="timeline">
-       <div class="timeline-item animated-card">
-           <strong>Business & Design</strong>
-           <p>Helena Saf manages client communication, visual direction, layout, branding, and project organization. She holds Bachelor’s and Master’s degrees and has multi-year experience with corporate U.S. and international companies.</p>
-       </div>
-      
-       <div class="timeline-item animated-card">
+        <div class="timeline-item animated-card">
+          <strong>Business & Design</strong>
+          <p>Helena Saf manages client communication, visual direction, layout, branding, and project organization. She holds Bachelor’s and Master’s degrees and has multi-year experience with corporate U.S. and international companies.</p>
+        </div>
+
+        <div class="timeline-item animated-card">
           <strong>Development</strong>
-          <p>Deividas Strole leads software architecture, coding, deployment, performance, and technical maintenance. He holds a Bachelor’s degree in Computer Science and a Master’s degree in Software Engineering, with experience in Java, JavaScript technologies, and modern web application development.</p>        </div>
-       
+          <p>Deividas Strole leads software architecture, coding, deployment, performance, and technical maintenance. He holds a Bachelor’s degree in Computer Science and a Master’s degree in Software Engineering, with experience in Java, JavaScript technologies, and modern web application development.</p>
+        </div>
+
         <div class="timeline-item animated-card">
           <strong>Marketing & SEO</strong>
           <p>Our marketing partner combines human strategy with AI-powered research and analysis to improve search visibility, content planning, keyword strategy, outreach, and measurable digital growth.</p>
@@ -225,23 +227,24 @@ const pages = {
 
     <section class="animated-section contact-panel">
       <form class="contact-form" id="contact-form">
-       <input type="hidden" name="access_key" value="b33b0ab6-4525-4fdb-a808-45d3b8eb6a6f" />
+        <input type="hidden" name="access_key" value="b33b0ab6-4525-4fdb-a808-45d3b8eb6a6f" />
         <input type="hidden" name="subject" value="Inquiry from Lake Apps" />
         <input type="hidden" name="from_name" value="Lake Apps" />
         <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
         <label>
           Name
-          <input type="text" name="name" placeholder="Your name" />
+          <input type="text" name="name" placeholder="Your name" required />
         </label>
 
         <label>
           Email
-          <input type="email" name="email" placeholder="you@example.com" />
+          <input type="email" name="email" placeholder="you@example.com" required />
         </label>
 
         <label>
           Message
-          <textarea name="message" rows="6" placeholder="Tell us about your project"></textarea>
+          <textarea name="message" rows="6" placeholder="Tell us about your project" required></textarea>
         </label>
 
         <button class="button primary" type="submit">Send Message</button>
@@ -275,9 +278,21 @@ function renderPage() {
     );
   });
 
-const form = document.querySelector('#contact-form');
+  setupContactForm();
+  observeAnimatedSections();
+  setupScrollRotatingTeamPhotos();
+  setupWalkingFly();
 
-if (form) {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setupContactForm() {
+  const form = document.querySelector('#contact-form');
+
+  if (!form) {
+    return;
+  }
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -317,13 +332,6 @@ if (form) {
   });
 }
 
-  observeAnimatedSections();
-  setupScrollRotatingTeamPhotos();
-  setupWalkingFly();
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
 function observeAnimatedSections() {
   const sections = document.querySelectorAll('.animated-section');
 
@@ -350,46 +358,45 @@ function observeAnimatedSections() {
 function setupScrollRotatingTeamPhotos() {
   const photos = document.querySelectorAll('.rotating-team-photo');
 
+  if (teamPhotoScrollHandler) {
+    window.removeEventListener('scroll', teamPhotoScrollHandler);
+    teamPhotoScrollHandler = null;
+  }
+
   if (!photos.length) {
     return;
   }
 
-  function rotatePhotosOnScroll() {
+  teamPhotoScrollHandler = function rotatePhotosOnScroll() {
     const rotation = 180 + window.scrollY * 0.35;
 
     photos.forEach((photo) => {
       photo.style.transform = `rotate(${rotation}deg) scale(1)`;
     });
-  }
+  };
 
-  window.removeEventListener('scroll', rotatePhotosOnScroll);
-  window.addEventListener('scroll', rotatePhotosOnScroll);
-
-  rotatePhotosOnScroll();
+  window.addEventListener('scroll', teamPhotoScrollHandler);
+  teamPhotoScrollHandler();
 }
-
-window.addEventListener('hashchange', renderPage);
-
-if (!window.location.hash) {
-  window.location.hash = '#/';
-} else {
-  renderPage();
-}
-
-// Walking fly
 
 function setupWalkingFly() {
   const flySection = document.querySelector('.fly-walk-section');
   const fly = document.querySelector('.gradient-fly');
 
+  if (walkingFlyScrollHandler) {
+    window.removeEventListener('scroll', walkingFlyScrollHandler);
+    walkingFlyScrollHandler = null;
+  }
+
   if (!flySection || !fly) {
     return;
   }
 
-const isMobile = window.innerWidth <= 700;
-const startOffset = isMobile ? -0 : -0;
-const speed = isMobile ? 0.12 : 0.8;
-const enterPoint = isMobile ? 0.95 : 1.15;
+  const isMobile = window.innerWidth <= 700;
+
+  const startOffset = isMobile ? 0 : -70;
+  const speed = isMobile ? 0.1 : 0.8;
+  const enterPoint = isMobile ? 0.9 : 1.15;
 
   let lastScrollY = window.scrollY;
   let flyX = startOffset;
@@ -401,20 +408,36 @@ const enterPoint = isMobile ? 0.95 : 1.15;
     fly.style.setProperty('--fly-x', `${flyX}px`);
   }
 
-  setFlyPosition(startOffset);
-  fly.classList.add('facing-right');
+  function setFlyDirection(direction) {
+    if (direction === 'left') {
+      fly.classList.remove('facing-right');
+      fly.classList.add('facing-left');
+    } else {
+      fly.classList.remove('facing-left');
+      fly.classList.add('facing-right');
+    }
+  }
 
-  function moveFlyOnScroll() {
+  function getMaxMove() {
+    const trackWidth = flySection.offsetWidth;
+    const flyWidth = fly.offsetWidth;
+    return Math.max(trackWidth - flyWidth, 0);
+  }
+
+  setFlyPosition(startOffset);
+  setFlyDirection('right');
+
+  walkingFlyScrollHandler = function moveFlyOnScroll() {
     const currentScrollY = window.scrollY;
     const scrollDifference = currentScrollY - lastScrollY;
 
     const sectionRect = flySection.getBoundingClientRect();
 
-  const sectionJustEntered =
-  sectionRect.top < window.innerHeight * enterPoint &&
-  sectionRect.bottom > 0;
+    const sectionIsReady =
+      sectionRect.top < window.innerHeight * enterPoint &&
+      sectionRect.bottom > 0;
 
-    if (!sectionJustEntered) {
+    if (!sectionIsReady) {
       hasEnteredScreen = false;
       lastScrollY = currentScrollY;
       return;
@@ -425,16 +448,10 @@ const enterPoint = isMobile ? 0.95 : 1.15;
 
       if (scrollDifference >= 0) {
         setFlyPosition(startOffset);
-        fly.classList.remove('facing-left');
-        fly.classList.add('facing-right');
+        setFlyDirection('right');
       } else {
-        const trackWidth = flySection.offsetWidth;
-        const flyWidth = fly.offsetWidth;
-        const maxMove = Math.max(trackWidth - flyWidth, 0);
-
-        setFlyPosition(maxMove);
-        fly.classList.remove('facing-right');
-        fly.classList.add('facing-left');
+        setFlyPosition(getMaxMove());
+        setFlyDirection('left');
       }
 
       lastScrollY = currentScrollY;
@@ -445,23 +462,28 @@ const enterPoint = isMobile ? 0.95 : 1.15;
       return;
     }
 
-    const trackWidth = flySection.offsetWidth;
-    const flyWidth = fly.offsetWidth;
-    const maxMove = Math.max(trackWidth - flyWidth, 0);
+    const maxMove = getMaxMove();
+    const nextPosition = flyX + scrollDifference * speed;
+    const limitedPosition = Math.max(startOffset, Math.min(nextPosition, maxMove));
 
-    setFlyPosition(Math.max(startOffset, Math.min(flyX + scrollDifference * speed, maxMove)));
+    setFlyPosition(limitedPosition);
 
     if (scrollDifference > 0) {
-      fly.classList.remove('facing-left');
-      fly.classList.add('facing-right');
+      setFlyDirection('right');
     } else {
-      fly.classList.remove('facing-right');
-      fly.classList.add('facing-left');
+      setFlyDirection('left');
     }
 
     lastScrollY = currentScrollY;
-  }
+  };
 
-  window.removeEventListener('scroll', moveFlyOnScroll);
-  window.addEventListener('scroll', moveFlyOnScroll);
+  window.addEventListener('scroll', walkingFlyScrollHandler);
+}
+
+window.addEventListener('hashchange', renderPage);
+
+if (!window.location.hash) {
+  window.location.hash = '#/';
+} else {
+  renderPage();
 }
