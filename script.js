@@ -386,14 +386,20 @@ function setupWalkingFly() {
     return;
   }
 
-  const startOffset = -80;
-  const speed = 1.1;
+  const startOffset = -90;
+  const speed = window.innerWidth <= 700 ? 0.35 : 0.8;
 
   let lastScrollY = window.scrollY;
   let flyX = startOffset;
+  let hasEnteredScreen = false;
 
-  fly.dataset.flyX = String(flyX);
-  fly.style.setProperty('--fly-x', `${flyX}px`);
+  function setFlyPosition(x) {
+    flyX = x;
+    fly.dataset.flyX = String(flyX);
+    fly.style.setProperty('--fly-x', `${flyX}px`);
+  }
+
+  setFlyPosition(startOffset);
   fly.classList.add('facing-right');
 
   function moveFlyOnScroll() {
@@ -401,11 +407,34 @@ function setupWalkingFly() {
     const scrollDifference = currentScrollY - lastScrollY;
 
     const sectionRect = flySection.getBoundingClientRect();
-    const sectionIsVisible =
-      sectionRect.top < window.innerHeight &&
+
+    const sectionJustEntered =
+      sectionRect.top < window.innerHeight * 0.85 &&
       sectionRect.bottom > 0;
 
-    if (!sectionIsVisible) {
+    if (!sectionJustEntered) {
+      hasEnteredScreen = false;
+      lastScrollY = currentScrollY;
+      return;
+    }
+
+    if (!hasEnteredScreen) {
+      hasEnteredScreen = true;
+
+      if (scrollDifference >= 0) {
+        setFlyPosition(startOffset);
+        fly.classList.remove('facing-left');
+        fly.classList.add('facing-right');
+      } else {
+        const trackWidth = flySection.offsetWidth;
+        const flyWidth = fly.offsetWidth;
+        const maxMove = Math.max(trackWidth - flyWidth, 0);
+
+        setFlyPosition(maxMove);
+        fly.classList.remove('facing-right');
+        fly.classList.add('facing-left');
+      }
+
       lastScrollY = currentScrollY;
       return;
     }
@@ -418,11 +447,7 @@ function setupWalkingFly() {
     const flyWidth = fly.offsetWidth;
     const maxMove = Math.max(trackWidth - flyWidth, 0);
 
-    flyX += scrollDifference * speed;
-    flyX = Math.max(startOffset, Math.min(flyX, maxMove));
-
-    fly.dataset.flyX = String(flyX);
-    fly.style.setProperty('--fly-x', `${flyX}px`);
+    setFlyPosition(Math.max(startOffset, Math.min(flyX + scrollDifference * speed, maxMove)));
 
     if (scrollDifference > 0) {
       fly.classList.remove('facing-left');
