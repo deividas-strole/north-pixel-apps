@@ -387,7 +387,7 @@ function setupWalkingFly() {
   }
 
 const isMobile = window.innerWidth <= 700;
-const startOffset = isMobile ? -70 : -40;
+const startOffset = isMobile ? -25 : -25;
 const speed = isMobile ? 0.12 : 0.8;
 const enterPoint = isMobile ? 0.95 : 1.15;
 
