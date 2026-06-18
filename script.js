@@ -274,7 +274,7 @@ const pages = {
       </div>
     </div>
   </div>
-</section>
+</section>`
 };
 
 function getCurrentPage() {
