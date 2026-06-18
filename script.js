@@ -226,54 +226,29 @@ const pages = {
     </section>
 
     <section class="animated-section contact-panel">
-  <div class="contact-form-wrap">
-    <form class="contact-form" id="contact-form">
-      <input type="hidden" name="access_key" value="b33b0ab6-4525-4fdb-a808-45d3b8eb6a6f" />
-      <input type="hidden" name="subject" value="Inquiry from Lake Apps" />
-      <input type="hidden" name="from_name" value="Lake Apps" />
-      <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+  <form class="contact-form" id="contact-form">
+    <input type="hidden" name="access_key" value="b33b0ab6-4525-4fdb-a808-45d3b8eb6a6f" />
+    <input type="hidden" name="subject" value="Inquiry from Lake Apps" />
+    <input type="hidden" name="from_name" value="Lake Apps" />
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 
-      <label>
-        Name
-        <input type="text" name="name" placeholder="Your name" required />
-      </label>
+    <label>
+      Name
+      <input type="text" name="name" placeholder="Your name" required />
+    </label>
 
-      <label>
-        Email
-        <input type="email" name="email" placeholder="you@example.com" required />
-      </label>
+    <label>
+      Email
+      <input type="email" name="email" placeholder="you@example.com" required />
+    </label>
 
-      <label>
-        Message
-        <textarea name="message" rows="6" placeholder="Tell us about your project" required></textarea>
-      </label>
+    <label>
+      Message
+      <textarea name="message" rows="6" placeholder="Tell us about your project" required></textarea>
+    </label>
 
-      <button class="button primary" type="submit">Send Message</button>
-    </form>
-
-    <div class="cattails-decor" aria-hidden="true">
-      <div class="cattail cattail-1">
-        <span class="cattail-leaf leaf-left"></span>
-        <span class="cattail-leaf leaf-right"></span>
-        <span class="cattail-stem"></span>
-        <span class="cattail-head"></span>
-      </div>
-
-      <div class="cattail cattail-2">
-        <span class="cattail-leaf leaf-left"></span>
-        <span class="cattail-leaf leaf-right"></span>
-        <span class="cattail-stem"></span>
-        <span class="cattail-head"></span>
-      </div>
-
-      <div class="cattail cattail-3">
-        <span class="cattail-leaf leaf-left"></span>
-        <span class="cattail-leaf leaf-right"></span>
-        <span class="cattail-stem"></span>
-        <span class="cattail-head"></span>
-      </div>
-    </div>
-  </div>
+    <button class="button primary" type="submit">Send Message</button>
+  </form>
 </section>`
 };
 
