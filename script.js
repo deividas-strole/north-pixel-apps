@@ -312,6 +312,8 @@ function renderPage() {
   observeAnimatedSections();
   setupScrollRotatingTeamPhotos();
   setupWalkingFly();
+  // Frog jumping
+  setupFrogGame();
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
