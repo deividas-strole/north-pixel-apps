@@ -298,9 +298,6 @@ const pages = {
 
     </div>
 
-    <p class="frog-message" id="frog-message">
-      Tap the frog to start.
-    </p>
 
     <button class="button secondary frog-reset" id="frog-reset" type="button">
       Play Again
