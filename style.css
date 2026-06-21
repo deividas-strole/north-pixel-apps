@@ -725,8 +725,9 @@ h3 {
   width: 64px;
   height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff006e, #2563eb, #ffbe0b);
-  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.2);
+  background: #ffffff;
+  border: 2px solid #0a0a0a;
+  box-shadow: 6px 6px 0 #0a0a0a;
 }
 
 .lily-pad::after {
@@ -736,9 +737,9 @@ h3 {
   right: 8px;
   width: 18px;
   height: 14px;
-  background: #ffffff;
+  background: #0a0a0a;
   clip-path: polygon(100% 0, 0 50%, 100% 100%);
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .pad-1 {
