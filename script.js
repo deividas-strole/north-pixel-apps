@@ -255,7 +255,7 @@ const pages = {
   <div class="frog-game">
     <div class="section-heading stagger">
       <p class="eyebrow">Lake Break</p>
-      <h2>Help the frog reach the lake.</h2>
+      <h2>Help the frog reach the last lily and get 25% off your project!</h2>
       <p>Tap the frog to jump across the lily pads.</p>
     </div>
 
@@ -536,7 +536,7 @@ function setupFrogGame() {
     { left: '28%', bottom: '98px', message: 'Nice jump. The lake is getting closer.' },
     { left: '48%', bottom: '72px', message: 'Halfway there.' },
     { left: '68%', bottom: '102px', message: 'Almost at the lake.' },
-    { left: '86%', bottom: '70px', message: 'The frog made it to the lake. Ready to build something?' }
+    { left: '86%', bottom: '70px', message: 'The frog made it to the last lily. Your 25% discount code: FROG2026' }
   ];
 
   let currentStep = 0;
@@ -562,7 +562,7 @@ function setupFrogGame() {
       currentStep += 1;
       moveFrog();
     } else {
-      message.textContent = 'The frog is already at the lake. Send us your project idea.';
+      message.textContent = 'The frog made it to the last lily. Your 25% discount code: FROG2026';
     }
   });
 
