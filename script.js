@@ -260,6 +260,9 @@ const pages = {
     </div>
 
     <div class="frog-pond" id="frog-pond">
+      <p class="frog-message" id="frog-message">
+        Tap the frog to start.
+      </p>
       <div class="lily-pad pad-1"></div>
       <div class="lily-pad pad-2"></div>
       <div class="lily-pad pad-3"></div>
