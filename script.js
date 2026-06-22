@@ -585,7 +585,7 @@ function setupFrogGame() {
       currentStep += 1;
       moveFrog();
     } else {
-      message.textContent = 'The frog made it to the last lily. Your 25% discount code: FROG2026';
+      message.textContent = 'Kva kva! Your 25% discount code: FROG2026';
     }
   });
 
