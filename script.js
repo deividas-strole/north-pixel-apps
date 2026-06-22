@@ -566,9 +566,9 @@ function setupFrogGame() {
       ]
     : [
         { left: '9%', bottom: '68px', message: '' },
-        { left: '29%', bottom: '98px', message: '' },
+        { left: '29%', bottom: '106px', message: '' },
         { left: '49%', bottom: '72px', message: '' },
-        { left: '69%', bottom: '102px', message: '' },
+        { left: '69%', bottom: '110px', message: '' },
         { left: '87%', bottom: '70px', message: 'Kva kva! Your 25% discount code: FROG2026' }
       ];
 
