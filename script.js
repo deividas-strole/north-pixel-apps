@@ -256,7 +256,6 @@ const pages = {
     <div class="section-heading stagger">
       <p class="eyebrow">Lake Break</p>
       <h2>Reach the last lily for 25% off!</h2>
-      <p>Tap the frog to jump across the lily pads.</p>
     </div>
 
     <div class="frog-pond" id="frog-pond">
