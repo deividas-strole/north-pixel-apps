@@ -554,13 +554,23 @@ function setupFrogGame() {
     return;
   }
 
-  const positions = [
-    { left: '9%', bottom: '68px', message: '' },
-    { left: '29%', bottom: '98px', message: '' },
-    { left: '49%', bottom: '72px', message: '' },
-    { left: '69%', bottom: '102px', message: '' },
-    { left: '87%', bottom: '70px', message: 'Kva kva! Your 25% discount code: FROG2026' }
-  ];
+  const isMobile = window.innerWidth <= 700;
+
+  const positions = isMobile
+    ? [
+        { left: '5%', bottom: '62px', message: '' },
+        { left: '26%', bottom: '92px', message: '' },
+        { left: '47%', bottom: '64px', message: '' },
+        { left: '68%', bottom: '94px', message: '' },
+        { left: '84%', bottom: '64px', message: 'Kva kva! Your 25% discount code: FROG2026' }
+      ]
+    : [
+        { left: '9%', bottom: '68px', message: '' },
+        { left: '29%', bottom: '98px', message: '' },
+        { left: '49%', bottom: '72px', message: '' },
+        { left: '69%', bottom: '102px', message: '' },
+        { left: '87%', bottom: '70px', message: 'Kva kva! Your 25% discount code: FROG2026' }
+      ];
 
   let currentStep = 0;
 
