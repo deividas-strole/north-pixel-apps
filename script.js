@@ -608,4 +608,4 @@ function setupFrogGame() {
 
   frog.style.left = positions[0].left;
   frog.style.bottom = positions[0].bottom;
-} //
+} 
